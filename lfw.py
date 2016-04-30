@@ -118,6 +118,9 @@ def get_predict_file(args):
             exector.forward(is_train=False)
             exector.outputs[0].wait_to_read()
             output = exector.outputs[0].asnumpy()
+
+            pdb.set_trace()
+            
             dis = np.dot(output[0], output[1])/np.linalg.norm(output[0])/np.linalg.norm(output[1])
             f.write(name1 + '\t' + name2 + '\t' + str(dis) + '\t' + str(same) + '\n')
 
